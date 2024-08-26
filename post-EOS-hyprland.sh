@@ -14,7 +14,8 @@ yay -S --needed \
   gvfs-smb \
   playerctl \
   btop \
-  gnome-control-center
+  gnome-control-center \
+  aylurs-gtk-shell
 
 # Theme
 yay -S --needed \
