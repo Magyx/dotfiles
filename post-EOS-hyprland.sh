@@ -36,3 +36,7 @@ yay -S --needed \
   xorg-xhost \
   polkit-kde-agent
 
+# Create symlinks
+for folder in ./dotfiles/.config/*; do
+  ln -sfn $folder ~/.config/
+done
