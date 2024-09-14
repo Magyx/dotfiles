@@ -1,13 +1,19 @@
-import { applauncher } from "./modules/applauncher.js";
-import { Bar as bar } from "./modules/bar.js";
-// import { NotificationPopups } from "./modules/notifications.js";
-// import { Media } from "./modules/player.js";
-// import { Wallpaper } from "./modules/wallpaper.js";
-// import { Dock, dockActivator } from "./modules/dock.js";
+const entry = App.configDir + "/main.ts";
+const outdir = "/tmp/ags/js";
 
-App.config({
-  windows: [
-    bar(),
-    applauncher,
-  ],
-});
+App.addIcons(`${App.configDir}/assets/icons`);
+
+try {
+    // prettier-ignore
+    await Utils.execAsync([
+        "bun", "build", entry,
+        "--outdir", outdir,
+        "--external", "resource://*",
+        "--external", "gi://*"
+    ]);
+    await import(`file://${outdir}/main.js`);
+} catch (error) {
+    console.error(error);
+}
+
+export {};
