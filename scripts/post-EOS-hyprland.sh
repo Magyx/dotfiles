@@ -1,5 +1,14 @@
-yay -Syyu
+#!bin/bash
 
+# install yay
+sudo pacman -S --needed git base-devel
+git clone https://aur.archlinux.org/yay-bin.git && \
+ cd yay-bin && \
+ makepkg -si && \
+ cd ../ && \
+ rm -Rf yay-bin
+
+# Create snapshot before installing anything
 yay -S timeshift
 timeshift --btrfs
 sudo timeshift --create --comments 'Minimal arch'
@@ -29,7 +38,7 @@ yay -S --needed \
 
 # Hyprland
 yay -S --needed \
-  hyprland-git \
+  hyprland \
   xdg-desktop-portal-hyprland \
   qt6-wayland \
   qt5-wayland \
@@ -37,6 +46,8 @@ yay -S --needed \
   polkit-kde-agent
 
 # Create symlinks
-for folder in ./dotfiles/.config/*; do
-  ln -sfn $folder ~/.config/
-done
+./90-create-config-symlinks.sh
+
+# Apps
+yay -S --needed \
+  neovim
