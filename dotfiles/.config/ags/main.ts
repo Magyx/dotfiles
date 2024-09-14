@@ -1,9 +1,9 @@
-import { applauncher } from "./modules/applauncher.js";
-import { Bar as bar } from "./modules/bar.js";
-// import { NotificationPopups } from "./modules/notifications.js";
-// import { Media } from "./modules/player.js";
-// import { Wallpaper } from "./modules/wallpaper.js";
-// import { Dock, dockActivator } from "./modules/dock.js";
+import { applauncher } from "./modules/applauncher";
+import { Bar as bar } from "./modules/bar";
+// import { NotificationPopups } from "./modules/notifications";
+// import { Media } from "./modules/player";
+// import { Wallpaper } from "./modules/wallpaper";
+// import { Dock, dockActivator } from "./modules/dock";
 
 App.config({
   windows: [

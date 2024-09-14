@@ -4,7 +4,7 @@ const outdir = "/tmp/ags/js";
 App.addIcons(`${App.configDir}/assets/icons`);
 
 try {
-    // prettier-ignore
+    console.log('Building project.')
     await Utils.execAsync([
         "bun", "build", entry,
         "--outdir", outdir,

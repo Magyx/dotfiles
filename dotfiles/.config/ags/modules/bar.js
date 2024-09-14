@@ -1,22 +1,50 @@
-const hyprland = await Service.import("hyprland")
-const notifications = await Service.import("notifications")
-const mpris = await Service.import("mpris")
-const audio = await Service.import("audio")
-const battery = await Service.import("battery")
-const systemtray = await Service.import("systemtray")
+import { loadCompositor } from "../utils/compositor";
+
+const notifications = await Service.import("notifications");
+const mpris = await Service.import("mpris");
+const audio = await Service.import("audio");
+const battery = await Service.import("battery");
+const systemtray = await Service.import("systemtray");
 
 const date = Variable("", {
     poll: [1000, 'date "+%a %e %b %H:%M"'],
 })
 
 function Workspaces() {
-    const activeId = hyprland.active.workspace.bind("id")
-    const workspaces = hyprland.bind("workspaces")
-        .as(ws => ws.map(({ id }) => Widget.Button({
-            on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
-            child: Widget.Label(`${id}`),
-            class_name: activeId.as(i => `${i === id ? "focused" : ""}`),
-        })))
+    let workspaces = {};
+    loadCompositor()
+        .then(module => {
+            const compositor = new(module.Hyprland || module.Sway)();
+            console.log(compositor.constructor.name);
+            switch (compositor.constructor.name) {
+                case 'Hyprland':
+                    const hyprActiveId = compositor.active.workspace.bind("id")
+                    workspaces = compositor.bind("workspaces").as(ws =>
+                        ws.map(({ id }) => Widget.Button({
+                            on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
+                            child: Widget.Label(`${id}`),
+                            class_name: hyprActiveId.as(i => `${i === id ? "focused" : ""}`),
+                        }))
+                    );
+                    break;
+
+                case 'Sway':
+                    const swayActiveId = compositor.active.workspace.bind("id");
+                    workspaces = compositor.bind("workspaces").as(ws =>
+                        ws.map(({ id }) =>
+                        Widget.Button({
+                           on_clicked: () => compositor.messageAsync(`workspace ${id}`),
+                           child: Widget.label(`${id}`),
+                           class_name: swayActiveId.as(i => `${i === id ? "focused" : ""}`),
+                        }))
+                    );
+                    break;
+
+                default:
+                    console.log('No workspace support.');
+            }
+        })
+        .catch(error => console.error('Error loading compositor:', error));
 
     return Widget.Box({
         class_name: "workspaces",
