@@ -1,0 +1,94 @@
+layer-rule {
+  match namespace="orbit-wallpaper"
+  place-within-backdrop false
+}
+
+layer-rule {
+  match namespace="notifications"
+  block-out-from "screencast"
+}
+
+window-rule {
+  match is-active=true
+  opacity 1.0
+}
+
+window-rule {
+  draw-border-with-background false
+  geometry-corner-radius 10
+  clip-to-geometry true
+}
+
+window-rule {
+  match is-floating=true
+
+  min-width 600
+  min-height 200
+  shadow {
+      on
+  }
+}
+
+// spawns larger
+window-rule {
+  match app-id="firefox"
+  exclude title="Picture-in-Picture"
+  exclude title=r#"^\w+@\w+: .+ \| .* — Mozilla Firefox$"#
+  match app-id="Plex"
+
+  default-column-width { proportion 0.75; }
+}
+
+// floating
+window-rule {
+  match app-id="blueman-manager"
+  match app-id=r#"^blueberry\.py$"#
+  match app-id="nm-connection-editor"
+  match app-id=r#"^(pavucontrol|Volume Control).*$"#
+  match app-id="firefox" title="Picture-in-Picture"
+
+  open-floating true
+}
+
+// fullscreen & not opaque
+window-rule {
+  match app-id="Plex"
+
+  opacity 1.0
+  open-fullscreen true
+}
+
+// dev
+window-rule {
+  match app-id="com.gtnewhorizons.Lwjgl3ifyMinecraft"
+
+  opacity 1.0
+  open-on-workspace "dev"
+  open-focused false
+}
+
+// games
+window-rule {
+  match app-id=r#"^steam_app_.*$"#
+  match app-id=r#"^GT: New Horizons .*$"#
+
+  opacity 1.0
+  open-on-workspace "games"
+  open-maximized-to-edges true
+}
+
+// owns workspace
+window-rule { 
+  match app-id="discord"
+  open-on-workspace "discord"
+  open-maximized-to-edges true
+  open-focused false
+}
+
+window-rule {
+  match app-id=r#"^steam$"#
+  exclude title="Friends List"
+  open-on-workspace "steam"
+  open-maximized-to-edges true
+  open-focused false
+}

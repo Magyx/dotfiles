@@ -1,0 +1,24 @@
+// Setup environment variables via uwsm
+spawn-at-startup "uwsm" "finalize"
+
+// Core components
+spawn-at-startup "uwsm" "app" "--" "gnome-keyring-daemon" "--start" "--components=secrets"
+spawn-at-startup "uwsm" "app" "--" "sleep" "2" "&&" "orbitd"
+spawn-at-startup "uwsm" "app" "--" "sunsetr"
+spawn-at-startup "uwsm" "app" "--" "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+// START APPLETS
+spawn-at-startup "uwsm" "app" "--" "udiskie"
+spawn-at-startup "uwsm" "app" "--" "mako"
+spawn-at-startup "uwsm" "app" "--" "solaar" "--window=hide"
+
+// Clipboard history
+spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text"  "--watch" "cliphist" "store"
+spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+
+// Apps 
+spawn-at-startup "uwsm" "app" "--" "steam"
+spawn-at-startup "uwsm" "app" "--" "discord"
+spawn-at-startup "uwsm" "app" "--" "sh" "-c" "while true; do foot --server; sleep 1; done"
+// Auto-lock on login
+// spawn-at-startup "hyprlock" "--immediate"

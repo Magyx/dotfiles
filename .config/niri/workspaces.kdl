@@ -1,0 +1,15 @@
+workspace "discord" {
+  open-on-output "Hewlett Packard HP E231 3CQ34925XH"
+}
+
+workspace "steam" {
+  open-on-output "Hewlett Packard HP E231 3CQ34925XH"
+}
+
+workspace "games" {
+  open-on-output "Dell Inc. Dell AW3423DW #sxozGDAYFhEL"
+}
+
+workspace "dev" {
+  open-on-output "Dell Inc. Dell AW3423DW #sxozGDAYFhEL"
+}

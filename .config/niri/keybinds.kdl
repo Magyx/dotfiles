@@ -1,0 +1,130 @@
+binds {
+  Mod+Ctrl+Q repeat=false { quit; }
+
+  // Apps
+  Mod+Return { spawn "footclient"; }
+  Mod+B      { spawn "firefox"; }
+  Mod+E      { spawn "nemo"; }
+  Mod+D      { spawn "discord"; }
+  Mod+P      { spawn "env" "__NV_PRIME_RENDER_OFFLOAD=1" "__GLX_VENDOR_LIBRARY_NAME=nvidia" "QT_QPA_PLATFORM=xcb" "Plex"; }
+  Mod+Space  { spawn "orbit" "toggle" "launcher"; }
+  Mod+V      { spawn "orbit" "toggle" "cliphistory";}
+
+  // Window management
+  Mod+Q       repeat=false { close-window; }
+  Mod+F       repeat=false { fullscreen-window; }
+  Mod+Shift+F repeat=false { toggle-windowed-fullscreen; }
+  Mod+T       repeat=false { toggle-window-floating; }
+
+  // Cycle next
+  Mod+Tab       repeat=false { focus-window-previous; }
+  Mod+Shift+Tab repeat=false { toggle-overview; }
+
+  // Focus
+  Mod+H     { focus-column-or-monitor-left; }
+  Mod+Left  { focus-column-or-monitor-left; }
+  Mod+L     { focus-column-or-monitor-right; }
+  Mod+Right { focus-column-or-monitor-right; }
+  Mod+J     { focus-window-or-monitor-down; }
+  Mod+Down  { focus-window-or-monitor-down; }
+  Mod+K     { focus-window-or-monitor-up; }
+  Mod+Up    { focus-window-or-monitor-up; }
+
+  Mod+Alt+H     { focus-monitor-left; }
+  Mod+Alt+Left  { focus-monitor-left; }
+  Mod+Alt+L     { focus-monitor-right; }
+  Mod+Alt+Right { focus-monitor-right; }
+  Mod+Alt+J     { focus-monitor-down; }
+  Mod+Alt+Down  { focus-monitor-down; }
+  Mod+Alt+K     { focus-monitor-up; }
+  Mod+Alt+Up    { focus-monitor-up; }
+
+  // Move
+  Mod+Shift+H     { move-column-left-or-to-monitor-left; }
+  Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
+  Mod+Shift+L     { move-column-right-or-to-monitor-right; }
+  Mod+Shift+Right { move-column-right-or-to-monitor-right; }
+  Mod+Shift+J     { move-window-down; }
+  Mod+Shift+Down  { move-window-down; }
+  Mod+Shift+K     { move-window-up; }
+  Mod+Shift+Up    { move-window-up; }
+
+  Mod+Ctrl+H     { consume-or-expel-window-left; }
+  Mod+Ctrl+Left  { consume-or-expel-window-left; }
+  Mod+Ctrl+L     { consume-or-expel-window-right; }
+  Mod+Ctrl+Right { consume-or-expel-window-right; }
+  Mod+Ctrl+J     { move-column-to-monitor-down; }
+  Mod+Ctrl+Down  { move-column-to-monitor-down; }
+  Mod+Ctrl+K     { move-column-to-monitor-up; }
+  Mod+Ctrl+Up    { move-column-to-monitor-up; }
+
+  // Ratio keys
+  Mod+Minus        { switch-preset-column-width-back; }
+  Mod+Equal        { switch-preset-column-width; }
+  Mod+Shift+Minus  { set-column-width "-10%"; }
+  Mod+Shift+Equal  { set-column-width "+10%"; }
+  Mod+BracketLeft  { switch-preset-window-height-back; }
+  Mod+BracketRight { switch-preset-window-height; }
+
+  // Actions/scripts
+  Mod+Shift+S { screenshot; }
+  Mod+Ctrl+S  { screenshot-window; }
+  Mod+Shift+P { spawn "hyprlock" "--immediate"; }
+  // Mod+Shift+C { spawn-sh "~/dotfiles/hypr/scripts/cinema-mode.sh"; }
+
+  // Workspace binds (Mod+1..9 = 1..9)
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+
+  // Move window to workspace (Mod+Shift+number)
+  Mod+Shift+1 { move-window-to-workspace 1; }
+  Mod+Shift+2 { move-window-to-workspace 2; }
+  Mod+Shift+3 { move-window-to-workspace 3; }
+  Mod+Shift+4 { move-window-to-workspace 4; }
+  Mod+Shift+5 { move-window-to-workspace 5; }
+  Mod+Shift+6 { move-window-to-workspace 6; }
+  Mod+Shift+7 { move-window-to-workspace 7; }
+  Mod+Shift+8 { move-window-to-workspace 8; }
+  Mod+Shift+9 { move-window-to-workspace 9; }
+
+  // “Silent” move (Mod+Ctrl+number)
+  Mod+Ctrl+1 { spawn-sh "niri msg action move-window-to-workspace 1 --focus=false"; }
+  Mod+Ctrl+2 { spawn-sh "niri msg action move-window-to-workspace 2 --focus=false"; }
+  Mod+Ctrl+3 { spawn-sh "niri msg action move-window-to-workspace 3 --focus=false"; }
+  Mod+Ctrl+4 { spawn-sh "niri msg action move-window-to-workspace 4 --focus=false"; }
+  Mod+Ctrl+5 { spawn-sh "niri msg action move-window-to-workspace 5 --focus=false"; }
+  Mod+Ctrl+6 { spawn-sh "niri msg action move-window-to-workspace 6 --focus=false"; }
+  Mod+Ctrl+7 { spawn-sh "niri msg action move-window-to-workspace 7 --focus=false"; }
+  Mod+Ctrl+8 { spawn-sh "niri msg action move-window-to-workspace 8 --focus=false"; }
+  Mod+Ctrl+9 { spawn-sh "niri msg action move-window-to-workspace 9 --focus=false"; }
+
+  // Wheel workspace cycling (Mod+mouse_up/down e±1)
+  Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+  Mod+Shift+WheelScrollDown cooldown-ms=150 { move-workspace-down; }
+  Mod+Shift+WheelScrollUp   cooldown-ms=150 { move-workspace-up; }
+
+  // Media / system keys
+  XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "-q" "s" "+10%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-q" "s" "10%-"; }
+
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
+  XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+  XF86AudioPlay        allow-when-locked=true { spawn "playerctl" "play-pause"; }
+  XF86AudioPause       allow-when-locked=true { spawn "playerctl" "pause"; }
+  XF86AudioNext        allow-when-locked=true { spawn "playerctl" "next"; }
+  XF86AudioPrev        allow-when-locked=true { spawn "playerctl" "previous"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
+  XF86Calculator                              { spawn-sh "alacritty --command calc"; }
+
+  // VM / passthrough
+  Mod+Ctrl+P allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+}

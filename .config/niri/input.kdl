@@ -1,0 +1,23 @@
+input {
+  focus-follows-mouse
+  warp-mouse-to-focus
+
+  mod-key "Super"
+  mod-key-nested "Alt"
+  keyboard {
+    xkb {
+      layout "us"
+    }
+    numlock
+  }
+
+  touchpad {
+    dwt
+  }
+}
+
+gestures {
+  hot-corners {
+    off
+  }
+}

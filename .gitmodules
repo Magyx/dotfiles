@@ -1,0 +1,7 @@
+[submodule "tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule "tmux-which-key"]
+	path = .tmux/plugins/tmux-which-key
+	url = https://github.com/alexwforsythe/tmux-which-key
+  ignore = dirty
