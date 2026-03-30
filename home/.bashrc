@@ -6,8 +6,8 @@
 [[ $- != *i* ]] && return
 
 # Auto-attach or start tmux
-if [ -z "$TMUX" ]; then
-  tmux new-session -s "tmp-$$"
+if [[ -z "$TMUX" ]] && [[ "$(tty)" != /dev/tty* ]]; then
+  exec tmux new-session -s "tmp-$$"
 fi
 
 PS1='[\u@\h \W]\$ '
