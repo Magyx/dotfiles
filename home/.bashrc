@@ -5,10 +5,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Skip real TTYs
+[[ "$(tty)" == /dev/tty* ]] && return
+
 # Auto-attach or start tmux
-if [[ -z "$TMUX" ]] && [[ "$(tty)" != /dev/tty* ]]; then
-  exec tmux new-session -s "tmp-$$"
+if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
+  exec tmux new-session -e TMUX_EPHEMERAL=1
 fi
+
+echo "TMUX=$TMUX TERM=$TERM"
 
 PS1='[\u@\h \W]\$ '
 
