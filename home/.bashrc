@@ -120,7 +120,7 @@ alias idf-export='. /opt/esp-idf/export.sh'
 alias ccodebase='codebase -o codebase.txt && wl-copy < codebase.txt && rm codebase.txt'
 alias orbit_shell='cdr .Rust/orbit_shell && nvim .'
 alias ui_lib='cdr .Rust/ui_lib && nvim .'
-alias dotfiles='cd ~/dotfiles && nvim .'
+alias dotfiles='cd ~/dotfiles && SNACKS_SHOW_HIDDEN=1 nvim .'
 
 # android
 alias android='scrcpy --tcpip=192.168.0.226:5555 --video-codec=h265 --no-power-on'
