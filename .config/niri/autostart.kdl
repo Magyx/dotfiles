@@ -1,23 +1,21 @@
-// Setup environment variables via uwsm
-spawn-at-startup "uwsm" "finalize"
-
 // Core components
-spawn-at-startup "uwsm" "app" "--" "gnome-keyring-daemon" "--start" "--components=secrets"
-spawn-at-startup "uwsm" "app" "--" "orbitd"
-spawn-at-startup "uwsm" "app" "--" "sunsetr"
-spawn-at-startup "uwsm" "app" "--" "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "gnome-keyring-daemon" "--start" "--components=secrets"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "orbitd"
+spawn-at-startup "sunsetr"
 
-// START APPLETS
-spawn-at-startup "uwsm" "app" "--" "udiskie"
-spawn-at-startup "uwsm" "app" "--" "mako"
-spawn-at-startup "uwsm" "app" "--" "solaar" "--window=hide"
+// Applets
+spawn-at-startup "udiskie"
+spawn-at-startup "mako"
+spawn-at-startup "solaar" "--window=hide"
 
 // Clipboard history
-spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "text"  "--watch" "cliphist" "store"
-spawn-at-startup "uwsm" "app" "--" "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "text"  "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
 
 // Apps 
-spawn-at-startup "uwsm" "app" "--" "steam"
-spawn-at-startup "uwsm" "app" "--" "discord"
+spawn-at-startup "steam"
+spawn-at-startup "discord"
+
 // Auto-lock on login
 // spawn-at-startup "hyprlock" "--immediate"

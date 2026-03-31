@@ -6,7 +6,7 @@ binds {
   Mod+B      { spawn "firefox"; }
   Mod+E      { spawn "nemo"; }
   Mod+D      { spawn "discord"; }
-  Mod+P      { spawn "env" "__NV_PRIME_RENDER_OFFLOAD=1" "__GLX_VENDOR_LIBRARY_NAME=nvidia" "QT_QPA_PLATFORM=xcb" "Plex"; }
+  Mod+P      { spawn "Plex"; }
   Mod+Space  { spawn "orbit" "toggle" "launcher"; }
   Mod+V      { spawn "orbit" "toggle" "cliphistory";}
 
