@@ -86,8 +86,7 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^steam$"#
-  exclude title="Friends List"
+  match app-id=r#"^steam$"# title=r#"^Steam$"#
   open-on-workspace "steam"
   open-maximized-to-edges true
   open-focused false

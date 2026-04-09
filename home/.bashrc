@@ -12,8 +12,7 @@
 if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
   exec tmux new-session -e TMUX_EPHEMERAL=1
 fi
-
-echo "TMUX=$TMUX TERM=$TERM"
+# echo "TMUX=$TMUX TERM=$TERM"
 
 PS1='[\u@\h \W]\$ '
 
