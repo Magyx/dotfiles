@@ -1,0 +1,13 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = discord
+Target = discord-ptb
+Target = discord-canary
+
+[Action]
+Description = Repairing Vencord and re-installing OpenAsar for Discord
+When = PostTransaction
+Depends = vencord-installer-cli-bin
+Exec = /usr/bin/bash -c 'for d in /opt/discord /usr/lib/discord /opt/discord-ptb /usr/lib/discord-ptb /opt/discord-canary /usr/lib/discord-canary; do [ -d "$d" ] || continue; /usr/bin/vencordinstallercli -install-openasar -location "$d" || true; /usr/bin/vencordinstallercli -repair -location "$d" || true; done'

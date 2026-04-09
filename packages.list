@@ -1,0 +1,60 @@
+# Core
+nvidia-open-dkms
+bluez
+bluez-utils
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+fwupd
+bolt
+paccache
+
+# Fonts & Themes
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
+ttf-liberation
+ttf-google-sans-code-nf
+ttf-atkinson-hyperlegible
+
+# Desktop
+niri
+foot
+mako
+hyprlock
+xdg-desktop-portal-gnome
+xdg-desktop-portal-kde
+xdg-user-dirs
+wl-clipboard
+polkit-gnome
+
+# Applets
+solaar
+pavucontrol
+blueman
+nm-connection-editor
+udiskie
+
+# Development Tools
+base-devel
+git
+neovim
+tmux
+lazygit
+ripgrep
+fd
+fzf
+strace
+uv
+rustup
+
+# Applications
+syncthing
+tailscale
+firefox
+discord
+obs-studio
+steam
+prismlauncher
+

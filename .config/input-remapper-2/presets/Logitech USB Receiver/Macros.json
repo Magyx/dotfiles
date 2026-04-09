@@ -1,0 +1,53 @@
+[
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 125,
+                "origin_hash": "12968d842e677a33de729a4092ee6d3a"
+            },
+            {
+                "type": 1,
+                "code": 63,
+                "origin_hash": "12968d842e677a33de729a4092ee6d3a"
+            }
+        ],
+        "target_uinput": "mouse",
+        "output_symbol": "hold(key(BTN_RIGHT).wait(16))",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 125,
+                "origin_hash": "12968d842e677a33de729a4092ee6d3a"
+            },
+            {
+                "type": 1,
+                "code": 62,
+                "origin_hash": "12968d842e677a33de729a4092ee6d3a"
+            }
+        ],
+        "target_uinput": "mouse",
+        "output_symbol": "hold(key(BTN_LEFT).wait(16))",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 125,
+                "origin_hash": "12968d842e677a33de729a4092ee6d3a"
+            },
+            {
+                "type": 1,
+                "code": 61,
+                "origin_hash": "12968d842e677a33de729a4092ee6d3a"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "hold(key(KEY_Q).wait(16))",
+        "mapping_type": "key_macro"
+    }
+]
