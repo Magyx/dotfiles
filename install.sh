@@ -32,6 +32,7 @@ if command -v foot >/dev/null 2>&1; then
   ln -sf "/usr/lib/systemd/user/foot-server.socket" "$HOME/.config/systemd/user/niri.service.wants/foot-server.socket"
   systemctl --user enable --now foot-server.socket
 fi
+ln -sf "$DOTFILES/.config/systemd/user/orbitd.service" "$HOME/.config/systemd/user/orbitd.service"
 
 # Specific configs
 ln -sf "$DOTFILES/.tmux/.tmux-which-key.yaml" "$HOME/.tmux/plugins/tmux-which-key/config.yaml"

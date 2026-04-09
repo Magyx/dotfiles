@@ -1,0 +1,14 @@
+[Unit]
+Description=Orbit Daemon
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/orbitd
+Restart=on-failure
+RestartSec=3
+KillMode=process
+
+[Install]
+WantedBy=graphical-session.target
