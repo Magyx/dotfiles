@@ -24,10 +24,12 @@ sudo usermod -aG video,render,storage,wheel "$USER"
 
 # Create dirs
 mkdir -p "$HOME/.tmux/"
+mkdir -p "$HOME/.config/"
 
 # Symlinks
 ln -sf "$DOTFILES/home/.bashrc" "$HOME/.bashrc"
 ln -sf "$DOTFILES/home/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$DOTFILES/home/.icons" "$HOME/.icons"
 ln -sf "$DOTFILES/.tmux/plugins" "$HOME/.tmux/plugins"
 ln -sf "$DOTFILES/.config/foot" "$HOME/.config/foot"
 ln -sf "$DOTFILES/.config/fontconfig" "$HOME/.config/fontconfig"
