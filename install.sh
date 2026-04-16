@@ -4,6 +4,7 @@ set -e
 DOTFILES="$HOME/dotfiles"
 PKGS="$DOTFILES/packages.list"
 AUR_PKGS="$DOTFILES/packages-aur.list"
+CUSTOM_PKGS="$DOTFILES/packages-custom.list"
 
 # Install packages
 sudo pacman -S --needed - < <(grep -vE '^\s*(#|$)' "$PKGS")
@@ -15,6 +16,22 @@ if ! command -v yay >/dev/null 2>&1; then
 fi
 
 yay -S --needed - < <(grep -vE '^\s*(#|$)' "$AUR_PKGS")
+
+while IFS= read -r url || [ -n "$url" ]; do
+  [[ -z "$url" || "$url" =~ ^\s*# ]] && continue
+
+  echo "Building $url"
+  BUILD_TEMP=$(mktemp -d)
+
+  (
+    cd "$BUILD_TEMP"
+    curl -fsSL "$url" -o PKGBUILD
+    # -s: install deps, -i: install package, -r: cleanup deps, --noconfirm: automatic
+    makepkg -sir --noconfirm
+  )
+
+  rm -rf "$BUILD_TEMP"
+done <"$CUSTOM_PKGS"
 
 # Pull submodules
 git -C "$DOTFILES" submodule update --init --recursive
