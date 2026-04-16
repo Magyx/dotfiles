@@ -1,5 +1,5 @@
 # Core
-nvidia-open-dkms
+nvidia-open
 bluez
 bluez-utils
 pipewire
@@ -8,18 +8,19 @@ pipewire-jack
 pipewire-pulse
 fwupd
 bolt
-paccache
+pacman-contrib
+unzip
 
 # Fonts & Themes
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 ttf-liberation
-ttf-google-sans-code-nf
 ttf-atkinson-hyperlegible
 
 # Desktop
 niri
+xwayland-satellite
 foot
 mako
 hyprlock
@@ -28,6 +29,7 @@ xdg-desktop-portal-kde
 xdg-user-dirs
 wl-clipboard
 polkit-gnome
+adw-gtk-theme
 
 # Applets
 solaar
