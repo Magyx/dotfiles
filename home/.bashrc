@@ -9,8 +9,10 @@
 [[ "$(tty)" == /dev/tty* ]] && return
 
 # Auto-attach or start tmux
-if command -v tmux >/dev/null 2>&1 && [ -z "$TMUX" ]; then
-  exec tmux new-session -e TMUX_EPHEMERAL=1
+if [ -z "$TMUX" ] && [ "$SKIP_TMUX" != "1" ]; then
+  if command -v tmux >/dev/null 2>&1; then
+    exec tmux new-session -e TMUX_EPHEMERAL=1
+  fi
 fi
 # echo "TMUX=$TMUX TERM=$TERM"
 

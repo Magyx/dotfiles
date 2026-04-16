@@ -3,6 +3,7 @@ binds {
 
   // Apps
   Mod+Return { spawn "footclient"; }
+  Mod+Shift+Return { spawn "env" "SKIP_TMUX=1" "foot"; }
   Mod+B      { spawn "firefox"; }
   Mod+E      { spawn "nemo"; }
   Mod+D      { spawn "discord"; }
