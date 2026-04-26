@@ -1,5 +1,6 @@
 modules:
   wallpaper: true
+  lockscreen: true
 
 wallpaper:
   source: /home/magyx/Pictures/Wallpapers/
