@@ -7,6 +7,7 @@ AUR_PKGS="$DOTFILES/packages-aur.list"
 CUSTOM_PKGS="$DOTFILES/packages-custom.list"
 
 # Install packages
+echo "Installing packages"
 sudo pacman -S --needed - < <(grep -vE '^\s*(#|$)' "$PKGS")
 
 if ! command -v yay >/dev/null 2>&1; then
@@ -15,8 +16,10 @@ if ! command -v yay >/dev/null 2>&1; then
   cd "$DOTFILES"
 fi
 
+echo "Installing AUR packages"
 yay -S --needed - < <(grep -vE '^\s*(#|$)' "$AUR_PKGS")
 
+echo "Installing custom PKGBUILDs"
 while IFS= read -r url || [ -n "$url" ]; do
   [[ -z "$url" || "$url" =~ ^\s*# ]] && continue
 
@@ -39,27 +42,21 @@ git -C "$DOTFILES" submodule update --init --recursive
 # Setup user permissions
 sudo usermod -aG video,render,storage,wheel "$USER"
 
-# Create dirs
+# Symlinks
 mkdir -p "$HOME/.tmux/"
 mkdir -p "$HOME/.config/"
 
-# Symlinks
+echo "Creating symlinks"
+
 ln -sf "$DOTFILES/home/.bashrc" "$HOME/.bashrc"
 ln -sf "$DOTFILES/home/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTFILES/home/.icons" "$HOME/.icons"
 ln -sf "$DOTFILES/.tmux/plugins" "$HOME/.tmux/plugins"
-ln -sf "$DOTFILES/.config/foot" "$HOME/.config/foot"
-ln -sf "$DOTFILES/.config/fontconfig" "$HOME/.config/fontconfig"
-ln -sf "$DOTFILES/.config/environment.d" "$HOME/.config/environment.d"
-ln -sf "$DOTFILES/.config/niri" "$HOME/.config/niri"
-ln -sf "$DOTFILES/.config/mako" "$HOME/.config/mako"
-ln -sf "$DOTFILES/.config/orbit" "$HOME/.config/orbit"
-ln -sf "$DOTFILES/.config/sunsetr" "$HOME/.config/sunsetr"
-ln -sf "$DOTFILES/.config/nvim" "$HOME/.config/nvim"
-ln -sf "$DOTFILES/.config/xdg-desktop-portal" "$HOME/.config/xdg-desktop-portal"
-ln -sf "$DOTFILES/.config/hypr" "$HOME/.config/hypr"
-ln -sf "$DOTFILES/.config/input-remapper-2" "$HOME/.config/input-remapper-2"
-ln -sf "$DOTFILES/.config/solaar" "$HOME/.config/solaar"
+
+CONFIG_FILES=("foot" "fontconfig" "environment.d" "niri" "mako" "orbit" "sunsetr" "nvim" "xdg-desktop-portal" "input-remapper-2" "solaar")
+for config in "${CONFIG_FILES[@]}"; do
+  ln -sf "$DOTFILES/.config/$config" "$HOME/.config/$config"
+done
 
 # System-level symlinks
 sudo mkdir -p /etc/pacman.d/hooks
@@ -73,6 +70,7 @@ if [ -d "$DOTFILES/etc/modprobe.d" ]; then
 fi
 
 # Services
+echo "Installing services"
 mkdir -p "$HOME/.config/systemd/user/"
 if command -v foot >/dev/null 2>&1; then
   mkdir -p "$HOME/.config/systemd/user/foot-server.service.d"
