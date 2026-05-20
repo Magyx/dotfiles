@@ -22,6 +22,9 @@ binds {
   Mod+Shift+Tab repeat=false { toggle-overview; }
 
   // Focus
+  Mod+Alt+WheelScrollDown cooldown-ms=150 { focus-column-or-monitor-right; }
+  Mod+Alt+WheelScrollUp   cooldown-ms=150 { focus-column-or-monitor-left; }
+
   Mod+H     { focus-column-or-monitor-left; }
   Mod+Left  { focus-column-or-monitor-left; }
   Mod+L     { focus-column-or-monitor-right; }
