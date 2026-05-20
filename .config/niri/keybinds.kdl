@@ -7,7 +7,7 @@ binds {
   Mod+B      { spawn "firefox"; }
   Mod+E      { spawn "nautilus"; }
   Mod+D      { spawn "discord"; }
-  Mod+P      { spawn "Plex"; }
+  Mod+P      { spawn "env" "QT_QPA_PLATFORM=xcb" "Plex"; }
   Mod+Space  { spawn "orbit" "toggle" "launcher"; }
   Mod+V      { spawn "orbit" "toggle" "cliphistory";}
 
