@@ -1,5 +1,6 @@
 modules:
   wallpaper: true
+  launcher: true
   lockscreen: true
 
 wallpaper:
@@ -13,3 +14,5 @@ wallpaper:
       font_family: "Atkinson Hyperlegible"
       time_format: "%H:%M"
 
+launcher:
+  launch_options: "niri msg action spawn --"

@@ -8,8 +8,6 @@ binds {
   Mod+E      { spawn "nautilus"; }
   Mod+D      { spawn "discord"; }
   Mod+P      { spawn "env" "QT_QPA_PLATFORM=xcb" "Plex"; }
-  Mod+Space  { spawn "orbit" "toggle" "launcher"; }
-  Mod+V      { spawn "orbit" "toggle" "cliphistory";}
 
   // Window management
   Mod+Q       repeat=false { close-window; }
@@ -73,7 +71,9 @@ binds {
   // Actions/scripts
   Mod+Shift+S { screenshot; }
   Mod+Ctrl+S  { screenshot-window; }
-  Mod+Shift+P { spawn "hyprlock" "--immediate"; }
+  Print       { screenshot; }
+  Mod+Space   { spawn "orbit" "toggle" "launcher"; }
+  Mod+Shift+P { spawn "orbit" "toggle" "lockscreen"; }
   // Mod+Shift+C { spawn-sh "~/dotfiles/hypr/scripts/cinema-mode.sh"; }
 
   // Workspace binds (Mod+1..9 = 1..9)

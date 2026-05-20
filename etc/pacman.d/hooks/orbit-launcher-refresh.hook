@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Refreshing Orbit launcher cache...
+When = PostTransaction
+Exec = /usr/bin/sh -c 'for pid in $(pgrep -x orbitd); do user=$(ps -o user= -p "$pid" | tr -d " "); uid=$(id -u "$user"); bus="/run/user/$uid/bus"; [ -S "$bus" ] || continue; sudo -u "$user" DBUS_SESSION_BUS_ADDRESS="unix:path=$bus" orbit command launcher refresh; done'
