@@ -24,7 +24,6 @@ xwayland-satellite
 foot
 mako
 xdg-desktop-portal-gnome
-xdg-desktop-portal-kde
 xdg-user-dirs
 wl-clipboard
 polkit-gnome
@@ -58,4 +57,6 @@ discord
 obs-studio
 steam
 prismlauncher
+firefox
+nautilus
 

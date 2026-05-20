@@ -5,7 +5,7 @@ binds {
   Mod+Return { spawn "footclient"; }
   Mod+Shift+Return { spawn "env" "SKIP_TMUX=1" "foot"; }
   Mod+B      { spawn "firefox"; }
-  Mod+E      { spawn "nemo"; }
+  Mod+E      { spawn "nautilus"; }
   Mod+D      { spawn "discord"; }
   Mod+P      { spawn "Plex"; }
   Mod+Space  { spawn "orbit" "toggle" "launcher"; }
