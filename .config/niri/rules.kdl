@@ -73,10 +73,23 @@ window-rule {
   open-focused false
 }
 
+// notifications
+window-rule {
+  match app-id=r#"steam"# title=r#"^notificationtoasts_.*"#
+  match app-id="steam_app_default"
+
+
+  open-floating true
+  open-focused false
+
+  default-floating-position x=0 y=0 relative-to="bottom-right"
+}
+
 // games
 window-rule {
   match app-id=r#"^steam_app_.*$"#
   match app-id=r#"^GT: New Horizons .*$"#
+  match app-id=r#"^gamescope$"#
 
   opacity 1.0
   open-on-workspace "games"
@@ -93,6 +106,9 @@ window-rule {
 
 window-rule {
   match app-id=r#"^steam$"# title=r#"^Steam$"#
+  match app-id=r#"^steam$"# title=r#"^Special Deals$"#
+  match app-id=r#"^steam$"# title=r#"^Special Offers$"#
+  match app-id=r#"^steam$"# title=r#"^Sign in to Steam$"#
   open-on-workspace "steam"
   open-maximized-to-edges true
   open-focused false
