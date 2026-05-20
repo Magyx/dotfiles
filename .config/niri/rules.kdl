@@ -39,6 +39,12 @@ window-rule {
   default-column-width { proportion 0.75; }
 }
 
+window-rule {
+  match app-id="scrcpy"
+  min-width 497
+  max-width 661
+}
+
 // floating
 window-rule {
   match app-id="blueman-manager"
