@@ -64,9 +64,16 @@ if [ -d "$DOTFILES/etc/pacman.d/hooks" ]; then
   sudo ln -sf "$DOTFILES/etc/pacman.d/hooks/"* /etc/pacman.d/hooks/
 fi
 
+# System-level syncing
+# These need to be copies as initramfs sits before mounting /home.
+# Any changes need to be met by rerunning this part.
+echo "Syncing system level configurations"
 sudo mkdir -p /etc/modprobe.d
 if [ -d "$DOTFILES/etc/modprobe.d" ]; then
-  sudo ln -sf "$DOTFILES/etc/modprobe.d/"* /etc/modprobe.d/
+  sudo rm -f /etc/modprobe.d/*
+  sudo cp -a "$DOTFILES/etc/modprobe.d/"* /etc/modprobe.d/
+
+  sudo mkinitcpio -P
 fi
 
 # Services
