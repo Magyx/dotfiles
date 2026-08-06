@@ -1,8 +1,6 @@
 layout {
   gaps 2
 
-  struts { left 0; right 0; top 2; bottom 2; }
-
   focus-ring {
     width 1
     active-color "#7fc8ff"
