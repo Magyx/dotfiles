@@ -1,0 +1,13 @@
+[Unit]
+Description=Start orbit lock screen before suspend/hibernate
+Before=sleep.target
+
+[Service]
+Type=forking
+User=magyx
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+ExecStart=/usr/bin/orbit toggle lockscreen
+
+[Install]
+WantedBy=sleep.target

@@ -88,12 +88,17 @@ echo "Installing services"
 mkdir -p "$HOME/.config/systemd/user/"
 if command -v foot >/dev/null 2>&1; then
   mkdir -p "$HOME/.config/systemd/user/foot-server.service.d"
-  mkdir -p "$HOME/.config/systemd/user/niri.service.wants"
   ln -sf "$DOTFILES/.config/systemd/user/foot-server.service.d/niri.conf" "$HOME/.config/systemd/user/foot-server.service.d/niri.conf"
   ln -sf "/usr/lib/systemd/user/foot-server.socket" "$HOME/.config/systemd/user/niri.service.wants/foot-server.socket"
   systemctl --user enable --now foot-server.socket
 fi
-ln -sf "$DOTFILES/.config/systemd/user/orbitd.service" "$HOME/.config/systemd/user/orbitd.service"
+if command -v orbit >/dev/null 2>&1; then
+  mkdir -p "$HOME/.config/systemd/system"
+  ln -sf "$DOTFILES/.config/systemd/user/orbitd.service" "$HOME/.config/systemd/user/orbitd.service"
+  sudo ln -sf "$DOTFILES/.config/systemd/system/orbit-lock-before-sleep.service" /etc/systemd/system/orbit-lock-before-sleep.service
+  sudo systemctl daemon-reload
+  sudo systemctl enable orbit-lock-before-sleep
+fi
 
 # Specific configs
 ln -sf "$DOTFILES/.tmux/.tmux-which-key.yaml" "$HOME/.tmux/plugins/tmux-which-key/config.yaml"
