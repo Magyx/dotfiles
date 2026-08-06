@@ -1,0 +1,12 @@
+# All Keychron HID Devices (Catches Keyboards, Receivers, and Dongles)
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", MODE="0660", TAG+="uaccess"
+
+# Explicit entries for your wireless receivers
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="d026", MODE="0660", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="d028", MODE="0660", TAG+="uaccess"
+
+# General QMK / ZMK Controllers
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="feed", MODE="0660", TAG+="uaccess"
+
+# USB Access for Flashing / WebHID
+SUBSYSTEM=="usb", ATTR{idVendor}=="3434", MODE="0666"

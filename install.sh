@@ -64,6 +64,13 @@ if [ -d "$DOTFILES/etc/pacman.d/hooks" ]; then
   sudo ln -sf "$DOTFILES/etc/pacman.d/hooks/"* /etc/pacman.d/hooks/
 fi
 
+sudo mkdir -p /etc/udev/rules.d
+if [ -d "$DOTFILES/etc/udev/rules.d" ]; then
+  sudo ln -sf "$DOTFILES/etc/udev/rules.d/"* /etc/udev/rules.d/
+
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+fi
+
 # System-level syncing
 # These need to be copies as initramfs sits before mounting /home.
 # Any changes need to be met by rerunning this part.
