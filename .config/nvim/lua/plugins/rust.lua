@@ -9,15 +9,23 @@ return {
       opts.server.default_settings["rust-analyzer"] = opts.server.default_settings["rust-analyzer"] or {}
 
       local ra = opts.server.default_settings["rust-analyzer"]
+
+      -- Cargo build script settings
       ra.cargo = ra.cargo or {}
       ra.cargo.buildScripts = ra.cargo.buildScripts or {}
-
-      -- These are the important bits for OUT_DIR + generated include! files
       ra.cargo.buildScripts.enable = true
       ra.cargo.loadOutDirsFromCheck = true
 
+      -- Proc macros
       ra.procMacro = ra.procMacro or {}
       ra.procMacro.enable = true
+
+      -- Disable the inactive code warning
+      ra.diagnostics = ra.diagnostics or {}
+      ra.diagnostics.disabled = { "inactive-code" }
+
+      -- Tell rust-analyzer to enable all crate features
+      ra.cargo.allFeatures = true
     end,
   },
 }
