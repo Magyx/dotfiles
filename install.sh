@@ -53,7 +53,7 @@ ln -sf "$DOTFILES/home/.tmux.conf" "$HOME/.tmux.conf"
 ln -sf "$DOTFILES/home/.icons" "$HOME/.icons"
 ln -sf "$DOTFILES/.tmux/plugins" "$HOME/.tmux/plugins"
 
-CONFIG_FILES=("foot" "fontconfig" "environment.d" "niri" "mako" "orbit" "sunsetr" "nvim" "xdg-desktop-portal" "gtk-3.0")
+CONFIG_FILES=("foot" "fontconfig" "environment.d" "niri" "mako" "orbit" "sunsetr" "nvim" "xdg-desktop-portal" "gtk-3.0" "pipewire")
 for config in "${CONFIG_FILES[@]}"; do
   ln -sf "$DOTFILES/.config/$config" "$HOME/.config/$config"
 done
