@@ -7,7 +7,6 @@ spawn-at-startup "sunsetr"
 // Applets
 spawn-at-startup "udiskie"
 spawn-at-startup "mako"
-spawn-at-startup "solaar" "--window=hide"
 
 // Clipboard history
 spawn-at-startup "wl-paste" "--type" "text"  "--watch" "cliphist" "store"

@@ -30,7 +30,6 @@ polkit-gnome
 adw-gtk-theme
 
 # Applets
-solaar
 pavucontrol
 blueman
 nm-connection-editor
