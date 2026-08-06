@@ -11,4 +11,4 @@ RestartSec=3
 KillMode=process
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=niri.service
