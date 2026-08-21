@@ -124,8 +124,34 @@ alias ui_lib='cdr .Rust/ui_lib && nvim .'
 alias dotfiles='cd ~/dotfiles && SNACKS_SHOW_HIDDEN=1 nvim .'
 
 # android
-alias android='scrcpy --tcpip=192.168.0.226:5555 --video-codec=h265 --no-power-on'
-alias camera='android --video-source=camera --camera-id=0 --camera-size=1920x1080 --no-audio --v4l2-sink=/dev/video12 --no-playback --no-window'
+android() {
+  local ip="192.168.0.226:5555"
+
+  if ! adb devices | grep -q "$ip.*device"; then
+    echo "Connecting to $ip..."
+    adb connect "$ip"
+  fi
+
+  scrcpy \
+    --tcpip="$ip" \
+    --video-codec=h265 \
+    --no-power-on \
+    "$@"
+}
+camera() {
+  local cam_id="${1:-0}"
+  local fps="${2:-30}"
+
+  android \
+    --video-source=camera \
+    --camera-id="$cam_id" \
+    --camera-fps="$fps" \
+    --camera-size=1920x1080 \
+    --no-audio \
+    --v4l2-sink=/dev/video12 \
+    --no-playback \
+    --no-window
+}
 
 # <<< shortcuts <<<
 
