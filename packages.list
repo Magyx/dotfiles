@@ -10,6 +10,7 @@ fwupd
 bolt
 pacman-contrib
 unzip
+playerctl
 
 # Fonts & Themes
 noto-fonts-cjk
