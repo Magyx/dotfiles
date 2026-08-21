@@ -7,12 +7,23 @@ wallpaper:
   source: /home/magyx/Pictures/Wallpapers/
   cycle: "1h"
   widgets:
-    - type: clock
+    - type: column
+      spacing: -10
       x: 0.2
       y: 0.2
-      font_size: 102
-      font_family: "Atkinson Hyperlegible"
-      time_format: "%H:%M"
+      children:
+        - type: clock
+          font_size: 102
+          font_family: "Atkinson Hyperlegible"
+          time_format: "%H:%M"
+        - type: clock
+          font_size: 26
+          font_family: "Atkinson Hyperlegible"
+          time_format: "   %a %d %b %Y"
+
+lockscreen:
+  bg_tint: 40
+  idle: 10m
 
 launcher:
   launch_options: "niri msg action spawn --"

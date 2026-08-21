@@ -1,8 +1,14 @@
 output "Dell Inc. Dell AW3423DW #sxozGDAYFhEL" {
   focus-at-startup
-  mode "3440x1440@143.975"
+  mode "3440x1440@119.991"
   scale 1
   position x=0 y=0
+
+  // max-bpc 10
+  // variable-refresh-rate
+  // hdr mode="on" {
+  //   reference-luminance 203
+  // }
 }
 
 output "Hewlett Packard HP E231 3CQ34925XH" {

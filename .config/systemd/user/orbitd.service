@@ -5,6 +5,7 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
+Environment="UI_WGPU_VALIDATION=1" "UI_WGPU_DEBUG=1" "RUST_BACKTRACE=1" 'RUST_LOG="naga=off,wgpu_core=off,wgpu_hal=off"'
 ExecStart=/usr/bin/orbitd
 Restart=on-failure
 RestartSec=3
